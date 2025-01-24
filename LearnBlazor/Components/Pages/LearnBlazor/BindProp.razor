@@ -8,6 +8,12 @@ IsActive : @Product.IsActive
 <br />
 Price: @Product.Price
 <br />
+This Product is : @(Product.IsActive ? "Active" : "InActive")
+<br />
+
+IsActive :
+<input type="checkbox" @bind="@Product.IsActive" />
+<br />
 Input Price :
 <input type="number" @bind="@Product.Price" @bind:event="oninput" />
 <br />
