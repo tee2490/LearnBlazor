@@ -5,6 +5,14 @@
 Name : @Product.Name
 <br />
 IsActive : @Product.IsActive
+<br />
+Price: @Product.Price
+<br />
+Input Price :
+<input type="number" @bind="@Product.Price" @bind:event="oninput" />
+<br />
+Input Price :
+<input type="number" @bind-value="@Product.Price" @bind-value:event="oninput" />
 
 
 @code {
@@ -12,6 +20,7 @@ IsActive : @Product.IsActive
         {
             Id = 1,
             Name = "Product 1",
-            IsActive = true
+            IsActive = true,
+            Price = 5
         };
 }
