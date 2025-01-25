@@ -1,11 +1,12 @@
 ﻿@page "/learnBlazor/demoProduct"
 
 <h2 class="text-primary">DemoProduct</h2>
+<h3>Favorite Count : @FavoriteCount</h3>
 <div class=" p-2 mt-2">
     <div class="row">
         @foreach (var prod in ProductList)
         {
-            <_IndividualProduct Product="prod">
+            <_IndividualProduct Product="prod" OnFavoriteUpdated="FavoriteCountChange">
 
             </_IndividualProduct>
         }
@@ -15,10 +16,11 @@
                @onclick="()=>IncrementCount(5)" />
         Count : @Count
     </div>
-</div>
+ </div>
 
 
 @code {
+    public int FavoriteCount { get; set; } = 0;
     public int Count { get; set; } = 0;
 
     List<Product> ProductList = new();
@@ -65,6 +67,18 @@
         if (prod != null)
         {
             ProductList.Remove(prod);
+        }
+    }
+
+    protected void FavoriteCountChange(bool isSelected)
+    {
+        if (isSelected)
+        {
+            FavoriteCount++;
+        }
+        else
+        {
+            FavoriteCount--;
         }
     }
 }
