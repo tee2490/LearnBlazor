@@ -65,6 +65,8 @@
 
 @code {
     private Product? createdProduct { get; set; }
+
+    [SupplyParameterFromForm(FormName = "ProductCreate")]
     public Product Product { get; set; } = new Product();
     private bool IsProcessing = false;
 
